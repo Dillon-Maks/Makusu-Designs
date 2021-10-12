@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    width: 100vw;
+    height: 500px;
+    background-image: url('../../assets/Rainbow_Snakes.png');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    width: 20%;
+    position: absolute;
+    margin: 20%;
+    padding: 0;
+}
