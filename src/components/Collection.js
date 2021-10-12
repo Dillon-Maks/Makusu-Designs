@@ -1,13 +1,14 @@
 import data from '../data/data.js';
+import { useParams } from 'react-router-dom';
 
 
-export default function Collection(props) {
-    const { name } = props;
+export default function Collection() {
+    const { category } = useParams();
     const products = [];
 
     data.products.forEach(item => {
         item.collection.forEach(col => {
-            if (col === name) {
+            if (col === category) {
                 products.push(item);
                 console.log(products);
             }
@@ -16,7 +17,16 @@ export default function Collection(props) {
 
     return (
         <div>
-            {products.map(item => <div><h1>{item.name}</h1><p>{item.price}</p></div>)}
+            {products.map((item, index) => {
+                return (
+                <div key={index}>
+                    <h1>{item.name}</h1>
+                    <div>
+                        <img src={item.images[0]} alt={item.name} />
+                    </div>
+                    <p>{item.price}</p>
+                </div>)
+            })}
         </div>
     )
 }

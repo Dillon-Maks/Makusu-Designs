@@ -21,11 +21,11 @@ function App() {
 
 
       <Switch>
-        <Route path='/tees'>
-          <Collection name='tees' />
-        </Route>
         <Route path='/collections'>
           <Collections dataCol={data.collections}/>
+        </Route>
+        <Route path='/:category'>
+          <Collection />
         </Route>
         <Route path='/'>
           <Home />
