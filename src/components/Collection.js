@@ -16,15 +16,16 @@ export default function Collection() {
     })
 
     return (
-        <div>
+        <div className='container'>
             {products.map((item, index) => {
                 return (
-                <div key={index}>
-                    <h1>{item.name}</h1>
+                <div className='product-card' key={index}>
                     <div className='img-container'>
                         <img src={item.images[0]} alt={item.name} />
                     </div>
+                    <p><b>{item.name}</b></p>
                     <p>{item.price}</p>
+                    <button>Add To Card</button>
                 </div>)
             })}
         </div>
