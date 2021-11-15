@@ -1,13 +1,25 @@
+import { useEffect, useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+
+// Components
 import Home from './components/Home.js';
-import Collections from './components/Collections.js';
-import Collection from './components/Collection.js';
-import './App.css';
+
+// Firebase Functions
+import getCategories from './firebase/functions/getCategories.js';
+
 import navLogo from './assets/Makusu.png';
-import data from './data/data.js';
+import './App.css';
+
 
 function App() {
+  const [categories, setCategories] = useState([]);
 
+  useEffect(() => {
+    getCategories()
+    .then(res => {
+      setCategories(res);
+    })
+  }, [])
 
   return (
     <div className="App">
@@ -17,6 +29,7 @@ function App() {
             <img src={navLogo} alt='logo' />
           </div>
           <div className='links-container'>
+            
             <Link to='/'>Home</Link>
             <Link to='/collections'>All</Link>
             <Link to='/tees'>Tees</Link>
@@ -24,7 +37,7 @@ function App() {
             <Link to='/bottoms'>Bottoms</Link>
             <Link to='/womens'>Women's</Link>
             <Link to='/accessories'>Accessories</Link>
-            <Link to='/limitedEdition' className='limited-ed-link'>Limited Edition</Link>
+            <Link to='/limitedEdition'>Limited Edition</Link>
           </div>
         </nav>
       </header>
@@ -32,10 +45,10 @@ function App() {
 
       <Switch>
         <Route path='/collections'>
-          <Collections dataCol={data.collections}/>
+
         </Route>
         <Route path='/:category'>
-          <Collection />
+
         </Route>
         <Route path='/'>
           <Home />
