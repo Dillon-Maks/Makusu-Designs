@@ -8,7 +8,10 @@ const getCategories = async () => {
     const querySnap = await getDocs(q);
 
     querySnap.forEach((doc) => {
-        categories.push(doc.data().name)
+        categories.push({
+            id: doc.id,
+            data: doc.data()
+        })
     });
 
     return(categories);

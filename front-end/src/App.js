@@ -19,6 +19,7 @@ function App() {
   useEffect(() => {
     getCategories()
     .then(res => {
+      console.log(res);
       setCategories(res);
     })
   }, [])
@@ -33,7 +34,7 @@ function App() {
           <div className='links-container'>
             <Link to='/'>Home</Link>
             <Link to='/collections'>All</Link>
-            {categories.map(item => <Link to={`/${item}`} key={item}>{item}</Link>)}
+            {categories.map(cat => <Link to={`/${cat.id}`} key={cat.id}>{cat.data.name}</Link>)}
             <Link to='/limitedEdition'>Limited Edition</Link>
           </div>
         </nav>
