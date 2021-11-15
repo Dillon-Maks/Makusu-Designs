@@ -13,7 +13,7 @@ const ProductList = () => {
         getProducts(category)
         .then(res => setProducts(res))
         .catch(err => console.log(err));
-    }, [])
+    }, [category])
 
     return (
         <div>

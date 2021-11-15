@@ -33,7 +33,7 @@ function App() {
           </div>
           <div className='links-container'>
             <Link to='/'>Home</Link>
-            <Link to='/collections'>All</Link>
+            <Link to='/all'>All</Link>
             {categories.map(cat => <Link to={`/${cat.id}`} key={cat.id}>{cat.data.name}</Link>)}
             <Link to='/limitedEdition'>Limited Edition</Link>
           </div>
@@ -42,8 +42,8 @@ function App() {
 
 
       <Switch>
-        <Route path='/collections'>
-
+        <Route path='/all'>
+          <ProductList />
         </Route>
         <Route path='/:category'>
           <ProductList />
