@@ -29,14 +29,9 @@ function App() {
             <img src={navLogo} alt='logo' />
           </div>
           <div className='links-container'>
-            
             <Link to='/'>Home</Link>
             <Link to='/collections'>All</Link>
-            <Link to='/tees'>Tees</Link>
-            <Link to='/hoodies'>Hoodies</Link>
-            <Link to='/bottoms'>Bottoms</Link>
-            <Link to='/womens'>Women's</Link>
-            <Link to='/accessories'>Accessories</Link>
+            {categories.map(item => <Link to={`/${item}`}>{item}</Link>)}
             <Link to='/limitedEdition'>Limited Edition</Link>
           </div>
         </nav>
