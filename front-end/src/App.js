@@ -6,9 +6,11 @@ import Home from './components/Home.js';
 
 // Firebase Functions
 import getCategories from './firebase/functions/getCategories.js';
+import ProductList from './components/ProductList.js';
 
 import navLogo from './assets/Makusu.png';
 import './App.css';
+
 
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
           <div className='links-container'>
             <Link to='/'>Home</Link>
             <Link to='/collections'>All</Link>
-            {categories.map(item => <Link to={`/${item}`}>{item}</Link>)}
+            {categories.map(item => <Link to={`/${item}`} key={item}>{item}</Link>)}
             <Link to='/limitedEdition'>Limited Edition</Link>
           </div>
         </nav>
@@ -43,7 +45,7 @@ function App() {
 
         </Route>
         <Route path='/:category'>
-
+          <ProductList />
         </Route>
         <Route path='/'>
           <Home />
