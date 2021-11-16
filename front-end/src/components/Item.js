@@ -6,7 +6,7 @@ const Item = ({ data, rotation }) => {
     const { push } = useHistory();
 
     const handleClick = (e) => {
-        push(`/${data.id}`)
+        push(`/product/${data.id}`)
     }
 
     const Image = styled.img`

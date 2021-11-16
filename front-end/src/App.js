@@ -3,6 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 
 // Components
 import Home from './components/Home.js';
+import ItemPage from './components/ItemPage.js';
 
 // Firebase Functions
 import getCategories from './firebase/functions/getCategories.js';
@@ -43,6 +44,9 @@ function App() {
       <Switch>
         <Route path='/all'>
           <ProductList />
+        </Route>
+        <Route path='/product/:id'>
+          <ItemPage />  
         </Route>
         <Route path='/:category'>
           <ProductList />

@@ -27,7 +27,6 @@ const ProductList = () => {
         if (Math.random() > 0.5) {
             num = -Math.abs(num);
         }
-        console.log(num)
         return num;
     }
 
