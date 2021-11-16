@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import getProducts from '../firebase/functions/getProducts';
+import styled from 'styled-components';
 
 import Item from './Item';
 
@@ -16,10 +17,17 @@ const ProductList = () => {
     }, [category])
 
     return (
-        <div>
+        <ProductContainer>
             {products.map(item => <Item data={item} key={item.name}/>)}
-        </div>
+        </ProductContainer>
     )
 }
 
 export default ProductList;
+
+const ProductContainer = styled.div`
+    width: 100vw;
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+`
