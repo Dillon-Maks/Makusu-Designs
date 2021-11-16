@@ -1,4 +1,4 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { db } from '../index.js';
 
 
@@ -8,7 +8,10 @@ const getCategories = async () => {
     const querySnap = await getDocs(q);
 
     querySnap.forEach((doc) => {
-        categories.push(doc.id);
+        categories.push({
+            id: doc.id,
+            data: doc.data()
+        })
     });
 
     return(categories);
