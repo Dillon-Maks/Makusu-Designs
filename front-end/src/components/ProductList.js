@@ -11,7 +11,6 @@ const ProductList = () => {
     const { category } = useParams();
 
     useEffect(() => {
-        console.log(category);
         if (category) {
             getProducts(category)
             .then(res => setProducts(res))
@@ -23,9 +22,18 @@ const ProductList = () => {
         }
     }, [category])
 
+    const makeNum = () => {
+        let num = Math.random() * 12;
+        if (Math.random() > 0.5) {
+            num = -Math.abs(num);
+        }
+        console.log(num)
+        return num;
+    }
+
     return (
         <ProductContainer>
-            {products.map(item => <Item data={item} key={item.name}/>)}
+            {products.map(item => <Item data={item} key={item.name} rotation={() => makeNum()}/>)}
         </ProductContainer>
     )
 }
