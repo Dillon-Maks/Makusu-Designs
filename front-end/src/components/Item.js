@@ -4,13 +4,13 @@ import { storage } from "../firebase";
 
 const Item = ({ data }) => {
     const imageRef = ref(storage, data.images[0])
-    
-    console.log(imageRef);
+
+    console.log(data.images[0])
 
     return(
         <div>
             <div>
-                <img />
+                <img src={data.images[0]}/>
             </div>
             <p>{data.name}</p>
         </div>
