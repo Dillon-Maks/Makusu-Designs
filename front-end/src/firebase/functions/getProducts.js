@@ -4,15 +4,17 @@ import { db } from '../index.js';
 
 const getProducts = async (categoryQuery) => {
     const products = []
+    let q = ''
 
     if (categoryQuery) {
-        const q = query(collection(db, "products"), where ("category", "array-contains", categoryQuery));
-        const querySnap = await getDocs(q);
-    
-        querySnap.forEach((doc) => {
-            products.push(doc.data());
-        });
+        q = query(collection(db, "products"), where ("category", "==", categoryQuery));
+    } else {
+        q = query(collection(db, "products"));
     }
+    const querySnap = await getDocs(q);
+    querySnap.forEach((doc) => {
+        products.push(doc);
+    });
 
     return(products);
 }

@@ -11,9 +11,16 @@ const ProductList = () => {
     const { category } = useParams();
 
     useEffect(() => {
-        getProducts(category)
-        .then(res => setProducts(res))
-        .catch(err => console.log(err));
+        console.log(category);
+        if (category) {
+            getProducts(category)
+            .then(res => setProducts(res))
+            .catch(err => console.log(err));
+        } else {
+            getProducts()
+            .then(res => setProducts(res))
+            .catch(err => console.log(err));
+        }
     }, [category])
 
     return (
@@ -29,5 +36,5 @@ const ProductContainer = styled.div`
     width: 100vw;
     margin: 2%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
 `

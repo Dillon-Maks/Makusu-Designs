@@ -1,14 +1,18 @@
 import styled from 'styled-components';
+import { useHistory } from 'react-router';
 
 
 const Item = ({ data }) => {
+    const { push } = useHistory();
 
+    const handleClick = (e) => {
+        push(`/${data.id}`)
+    }
 
     return(
-        <ItemContainer>
-            <Image src={data.images[0]} />
-            <Name>{data.name}</Name>
-            <span>${data.price}</span>
+        <ItemContainer onClick={handleClick}>
+            <Image src={data.data().images[0]} />
+            <span>${data.data().price}</span>
         </ItemContainer>
     )
 }
@@ -21,12 +25,9 @@ const Image = styled.img`
 `
 
 const ItemContainer = styled.div`
+    margin: 1% 4%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-`
-
-const Name = styled.span`
-    font-size: 40px;
 `
