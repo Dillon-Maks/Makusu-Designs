@@ -5,8 +5,6 @@ import { db } from '../index.js';
 const getProducts = async (categoryQuery) => {
     const products = []
 
-    console.log(categoryQuery);
-
     if (categoryQuery) {
         const q = query(collection(db, "products"), where ("category", "array-contains", categoryQuery));
         const querySnap = await getDocs(q);

@@ -19,7 +19,6 @@ function App() {
   useEffect(() => {
     getCategories()
     .then(res => {
-      console.log(res);
       setCategories(res);
     })
   }, [])
