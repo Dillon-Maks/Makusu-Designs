@@ -8,6 +8,8 @@ const AddToCart = ({ cartTotal, setCartTotal, cart, setCart }) => {
     const [item, setItem] = useState();
     const { id } = useParams();
 
+
+    // Fetches current pages item
     useEffect(() => {
         getProduct(id)
         .then(res => {
@@ -16,6 +18,7 @@ const AddToCart = ({ cartTotal, setCartTotal, cart, setCart }) => {
     }, [id])
 
 
+    // Adds item to cart and updates values
     const handleClick = () => {
         setCartTotal(cartTotal + 1)
         setCart([item, ...cart])

@@ -8,6 +8,7 @@ import Item from '../components/Item';
 const SimilarItems = ({ category, id }) => {
     const [similar, setSimilar] = useState([])
     
+    // Picks 5 random products from same category to display
     useEffect(() => {
         getProducts(category)
         .then(res => {

@@ -13,6 +13,7 @@ const ItemPage = ({ cartTotal, setCartTotal, cart, setCart }) => {
     const { id } = useParams();
 
 
+    // Set the current item
     useEffect(() => {
         getProduct(id)
         .then(res => {

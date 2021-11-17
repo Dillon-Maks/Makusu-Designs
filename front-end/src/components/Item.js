@@ -9,6 +9,8 @@ const Item = ({ data, rotation }) => {
         push(`/product/${data.id}`)
     }
 
+
+    // 🔥🔥🔥 This component needs rework on the rotation 🔥🔥🔥
     const Image = styled.img`
     width: 200px;
     height: 250px;

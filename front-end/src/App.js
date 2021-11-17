@@ -10,6 +10,7 @@ import ProductList from './components/ProductList.js';
 // Firebase Functions
 import getCategories from './firebase/functions/getCategories.js';
 
+// Assets & Styling
 import navLogo from './assets/Makusu.png';
 import cartImg from './assets/cart.PNG';
 import './App.css';
@@ -21,6 +22,8 @@ function App() {
   const [cart, setCart] = useState([])
   const { push } = useHistory();
 
+
+  // Effects
   useEffect(() => {
     if (localStorage.getItem('cart')) {
       const savedCart = JSON.parse(localStorage.getItem('cart'))
@@ -33,6 +36,7 @@ function App() {
     })
   }, [])
 
+  // Update local cart storage on cart state change
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart])

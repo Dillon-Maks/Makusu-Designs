@@ -10,6 +10,7 @@ const ProductList = () => {
     const [products, setProducts] = useState([]);
     const { category } = useParams();
 
+    // Display all products unless category is specified
     useEffect(() => {
         if (category) {
             getProducts(category)
@@ -22,6 +23,7 @@ const ProductList = () => {
         }
     }, [category])
 
+    // Random number for item image rotation
     const makeNum = () => {
         let num = Math.random() * 12;
         if (Math.random() > 0.5) {
