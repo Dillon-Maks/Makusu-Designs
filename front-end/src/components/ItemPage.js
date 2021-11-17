@@ -8,7 +8,7 @@ import SimilarItems from './SimilarItems';
 import './styles/ItemPage.css';
 
 
-const ItemPage = () => {
+const ItemPage = ({ cartTotal, setCartTotal, cart, setCart }) => {
     const [item, setItem] = useState([])
     const { id } = useParams();
 
@@ -31,7 +31,7 @@ const ItemPage = () => {
                     <h2>${item.price}</h2>
                     <p>{item.description}</p>
                     <hr/>
-                    <AddToCart />
+                    <AddToCart cartTotal={cartTotal} setCartTotal={setCartTotal} cart={cart} setCart={setCart} />
                 </div>
             </div>
             <span>Similar Items</span>

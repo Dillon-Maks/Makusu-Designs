@@ -14,7 +14,6 @@ const SimilarItems = ({ category, id }) => {
             const myRes = res.filter(item => item.id !== id);
             const toAdd = [];
             while (toAdd.length < 5) {
-                console.log(myRes.length);
                 if (myRes.length > 0) {
                     const randomItem = Math.floor(Math.random() * (myRes.length));
                     toAdd.push(myRes[randomItem]);
