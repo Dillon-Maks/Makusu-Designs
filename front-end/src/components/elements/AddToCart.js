@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import getProduct from '../../firebase/functions/getProduct';
 
-const AddToCart = ({ cartTotal, setCartTotal, cart, setCart }) => {
+const AddToCart = ({ cart, setCart }) => {
     const [item, setItem] = useState();
     const { id } = useParams();
 
@@ -20,8 +20,6 @@ const AddToCart = ({ cartTotal, setCartTotal, cart, setCart }) => {
 
     // Adds item to cart and updates values
     const handleClick = () => {
-        setCartTotal(cartTotal + 1)
-
         const itemsInCart = cart.filter(product => product.name === item.name);
         if (itemsInCart.length > 0) {
             if (item.amount) {

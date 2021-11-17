@@ -19,27 +19,35 @@ import './App.css';
 
 function App() {
   const [categories, setCategories] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
   const [cart, setCart] = useState([])
+  const [cartTotal, setCartTotal] = useState(0);
   const { push } = useHistory();
 
 
   // Effects
   useEffect(() => {
+    // Fetch saved car
     if (localStorage.getItem('cart')) {
       const savedCart = JSON.parse(localStorage.getItem('cart'))
       setCart(savedCart)
-      setCartTotal(savedCart.length)
     }
+
+    // Set categories
     getCategories()
     .then(res => {
       setCategories(res);
     })
+
+    // eslint-disable-next-line
   }, [])
 
   // Update local cart storage on cart state change
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
+    // Set cart total
+    let amountToBe = 0;
+    cart.forEach(item => amountToBe += item.amount)
+    setCartTotal(amountToBe);
   }, [cart])
 
   const handleCart = () => {
@@ -72,10 +80,10 @@ function App() {
           <ProductList />
         </Route>
         <Route path='/cart'>
-          <Cart cart={cart}/>
+          <Cart cart={cart} setCart={setCart}/>
         </Route>
         <Route path='/product/:id'>
-          <ItemPage cartTotal={cartTotal} setCartTotal={setCartTotal} cart={cart} setCart={setCart}/>  
+          <ItemPage cart={cart} setCart={setCart}/>  
         </Route>
         <Route path='/:category'>
           <ProductList />
