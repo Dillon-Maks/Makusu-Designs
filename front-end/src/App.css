@@ -75,3 +75,26 @@ a:hover::before {
   padding: 0;
   margin: 0;
 }
+
+.cart {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
+
+.cart img{
+  width: 100px;
+}
+
+.cart p {
+  padding: 2px 8px;
+  width: min-content;
+  position: fixed;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  border: 2px solid black;
+  bottom: 70px;
+  right: 10px;
+  z-index: 5;
+}
