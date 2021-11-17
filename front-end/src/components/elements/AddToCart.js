@@ -21,7 +21,21 @@ const AddToCart = ({ cartTotal, setCartTotal, cart, setCart }) => {
     // Adds item to cart and updates values
     const handleClick = () => {
         setCartTotal(cartTotal + 1)
-        setCart([item, ...cart])
+
+        const itemsInCart = cart.filter(product => product.name === item.name);
+        if (itemsInCart.length > 0) {
+            if (item.amount) {
+                item.amount ++;
+                setCart([...cart])
+            } else {
+                item.amount = 1;
+                setCart([...cart])
+            }
+        } else {
+            console.log('not yet in cart');
+            item.amount = 1;
+            setCart([item, ...cart])
+        }
     }
 
     return(

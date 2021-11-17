@@ -3,6 +3,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 // Components
+import Cart from './components/Cart';
 import Home from './components/Home.js';
 import ItemPage from './components/ItemPage.js';
 import ProductList from './components/ProductList.js';
@@ -71,7 +72,7 @@ function App() {
           <ProductList />
         </Route>
         <Route path='/cart'>
-          {cart.map(item => <p>{item.name}</p>)}
+          <Cart cart={cart}/>
         </Route>
         <Route path='/product/:id'>
           <ItemPage cartTotal={cartTotal} setCartTotal={setCartTotal} cart={cart} setCart={setCart}/>  
