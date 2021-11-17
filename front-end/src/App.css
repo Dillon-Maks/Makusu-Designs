@@ -77,7 +77,7 @@ a:hover::before {
 }
 
 .cart {
-  position: absolute;
+  position: fixed;
   right: 15px;
   bottom: 15px;
 }
