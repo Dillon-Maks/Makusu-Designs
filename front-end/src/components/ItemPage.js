@@ -24,7 +24,7 @@ const ItemPage = ({ cartTotal, setCartTotal, cart, setCart }) => {
         <>
             <div className='itempage-container'>
                 <div className='center-items'>
-                    {item.images && <img src={item.images[0]}/>}
+                    {item.images && <img src={item.images[0]} alt={item.name + `${'array num'}`}/>}
                 </div>
                 <div className='item-info'>
                     <h1>{item.name}</h1>

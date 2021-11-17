@@ -24,7 +24,8 @@ const SimilarItems = ({ category, id }) => {
             }
             setSimilar(toAdd);
         });
-
+        // The line below stops an unnecessary error from 'category' and 'id' props
+        // eslint-disable-next-line
     }, [])
 
     return (

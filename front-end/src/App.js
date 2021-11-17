@@ -5,7 +5,6 @@ import { useHistory } from 'react-router';
 // Components
 import Home from './components/Home.js';
 import ItemPage from './components/ItemPage.js';
-import Item from './components/Item';
 import ProductList from './components/ProductList.js';
 
 // Firebase Functions
@@ -59,7 +58,7 @@ function App() {
       </header>
 
       <div className='cart' onClick={handleCart}>
-        <img src={cartImg}/>
+        <img src={cartImg} alt='cart-icon'/>
         {cartTotal > 0 && <p>{cartTotal}</p>}
       </div>
 

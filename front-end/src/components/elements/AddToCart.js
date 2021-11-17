@@ -43,7 +43,3 @@ const Button = styled.div`
         color: white;
     }
 `
-
-const Text = styled.span`
-
-`

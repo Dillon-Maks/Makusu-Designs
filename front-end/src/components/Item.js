@@ -18,7 +18,7 @@ const Item = ({ data, rotation }) => {
 
     return(
         <ItemContainer onClick={handleClick}>
-            <Image src={data.data().images[0]} />
+            <Image src={data.data().images[0]} alt={data.data().name + `${'array num'}`}/>
             <span>${data.data().price}</span>
         </ItemContainer>
     )
