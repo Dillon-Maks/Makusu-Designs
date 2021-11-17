@@ -34,7 +34,7 @@ const ItemPage = ({ cartTotal, setCartTotal, cart, setCart }) => {
                     <AddToCart cartTotal={cartTotal} setCartTotal={setCartTotal} cart={cart} setCart={setCart} />
                 </div>
             </div>
-            <span>Similar Items</span>
+            <span className='similar-items'>Similar Items</span>
             {item.category && <SimilarItems category={item.category} id={id}/>}
         </>
     )

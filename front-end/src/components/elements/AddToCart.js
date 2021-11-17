@@ -19,8 +19,6 @@ const AddToCart = ({ cartTotal, setCartTotal, cart, setCart }) => {
     const handleClick = () => {
         setCartTotal(cartTotal + 1)
         setCart([item, ...cart])
-        localStorage.setItem('cart', JSON.stringify(cart));
-        console.log(JSON.stringify(cart));
     }
 
     return(

@@ -25,3 +25,8 @@
 h1, h2, p, hr {
     margin-bottom: 20px;
 }
+
+.similar-items {
+    font-size: 40px;
+    margin: 10% 0 2% 0;
+}
